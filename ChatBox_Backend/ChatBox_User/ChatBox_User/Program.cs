@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using ChatBox_User.Models;
+using ChatBox_User.Settings;
 using ChatBox_User.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 // 加入 DbContext 並使用 PostgreSQL 連線
 builder.Services.AddDbContext<ChatBoxDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// 註冊 Settings
+builder.Services.Configure<MailjetSettings>(builder.Configuration.GetSection("Mailjet"));
 
 // 註冊 http client
 builder.Services.AddHttpClient();
