@@ -16,7 +16,7 @@ export interface ResetResponse {
 }
 
 // 送出重設密碼資料
-export const register = async (payload: ResetPayload): Promise<ResetResponse> => {
+export const reset = async (payload: ResetPayload): Promise<ResetResponse> => {
     try {
         const response = await axios.post<ResetResponse>(API_URL, payload)
         return response.data
