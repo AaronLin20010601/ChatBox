@@ -45,10 +45,10 @@ dotnet run
 ```  
   
 For notification backend part:  
-1. Create a folder.
+1. Create a folder in backend folder.
 2. Create venv and download package by the following commands:  
 ```sh
-cd ChatBox/ChatBox_Notification
+cd ChatBox/ChatBox_Backend/ChatBox_Notification
 ```  
 ```sh
 python -m venv venv
@@ -62,7 +62,7 @@ pip install fastapi uvicorn python-dotenv mailjet-rest
 
 3. When need to compile and test via cmd, enter the following commands:  
 ```sh
-cd ChatBox/ChatBox_Notification
+cd ChatBox/ChatBox_Backend/ChatBox_Notification
 ```  
 ```sh
 uvicorn email_service:app --host 0.0.0.0 --port 8000
