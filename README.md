@@ -65,7 +65,7 @@ pip install fastapi uvicorn python-dotenv mailjet-rest
 cd ChatBox/ChatBox_Backend/ChatBox_Notification
 ```  
 ```sh
-uvicorn email_service:app --host 0.0.0.0 --port 8000
+uvicorn main:app --host 0.0.0.0 --port 8000
 ```  
 
 For frontend part:  
