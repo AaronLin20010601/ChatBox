@@ -32,7 +32,7 @@ namespace ChatBox_User.Services.Implements.Email
             var json = JsonConvert.SerializeObject(payload);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync("http://localhost:8000/send", content);
+            var response = await _httpClient.PostAsync("http://localhost:8000/email/token", content);
             return response.IsSuccessStatusCode;
         }
     }

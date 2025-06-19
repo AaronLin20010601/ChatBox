@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import List
 from mailjet_rest import Client
@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # 建立 fastapi
-app = FastAPI()
+router = APIRouter()
 
 # 從環境變數取得 Mailjet api 憑證
 MAILJET_API_KEY = os.getenv("MAILJET_API_KEY")
@@ -26,7 +26,7 @@ class EmailPayload(BaseModel):
     from_name: str
 
 # 寄送信件 api
-@app.post("/send")
+@router.post("/token")
 async def send_email(payload: EmailPayload):
     try:
         data = {
