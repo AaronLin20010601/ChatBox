@@ -22,6 +22,7 @@ PostgreSQL on cloud database Supabase, MongoDB on cloud database MongoDB Atlas
 - Uvicorn:For python backend command compile
 - Python-dotenv:For enviroment attributes loading
 - Mailjet-rest:For mail sending
+- Celery(Redis):For async task processing
   
 ### Vue Frontend:
 - Tailwindcss:For css styling
