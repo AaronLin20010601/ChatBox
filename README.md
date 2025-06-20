@@ -63,14 +63,14 @@ pip install fastapi uvicorn python-dotenv mailjet-rest "celery[redis]"
 
 3. Create docker for services by the following command(this command only need to be implement once):  
 ```sh
-docker run -d -p 6379:6379 redis
+docker run --name chatbox_notification -d -p 6379:6379 redis
 ```  
 Notice: when every time reboot the computer, enter the following commands:  
 ```sh
 cd ChatBox/ChatBox_Backend/ChatBox_Notification
 ```  
 ```sh
-docker start c67f5f77b2da
+docker start chatbox_notification
 ```  
 
 4. When need to compile and test via cmd, open two seperate cmds and enter the following commands:  
