@@ -57,15 +57,28 @@ python -m venv venv
 venv\Scripts\activate
 ```  
 ```sh
-pip install fastapi uvicorn python-dotenv mailjet-rest
+pip install fastapi uvicorn python-dotenv mailjet-rest "celery[redis]"
 ```  
 
-3. When need to compile and test via cmd, enter the following commands:  
+3. Create docker for services by the following command:  
+```sh
+docker run -d -p 6379:6379 redis
+```  
+
+4. When need to compile and test via cmd, open two seperate cmds and enter the following commands:  
+For the first cmd:  
 ```sh
 cd ChatBox/ChatBox_Backend/ChatBox_Notification
 ```  
 ```sh
-uvicorn main:app --host 0.0.0.0 --port 8000
+uvicorn main:app --reload
+```  
+For the second cmd:  
+```sh
+cd ChatBox/ChatBox_Backend/ChatBox_Notification
+```  
+```sh
+celery -A celery_worker worker --loglevel=info --pool=solo
 ```  
 
 For frontend part:  
